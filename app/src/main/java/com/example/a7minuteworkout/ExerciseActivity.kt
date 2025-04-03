@@ -10,12 +10,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.a7minuteworkout.databinding.ActivityExerciseBinding
 class ExerciseActivity : AppCompatActivity() {
-    //Todo 1 create a binding variable
+
     private var binding:ActivityExerciseBinding? = null
 
+    //Rest timer view
     private var restTimer: CountDownTimer?= null
     private var restProgress = 0
 
+    //Exercise timer view
     private var exerciseTimer: CountDownTimer?= null
     private var exerciseProgress = 0
 
@@ -40,8 +42,6 @@ class ExerciseActivity : AppCompatActivity() {
         binding?.toolbarExercise?.setNavigationOnClickListener {
             onBackPressed()
         }
-
-
         setupRestView()
     }
 
@@ -62,9 +62,9 @@ class ExerciseActivity : AppCompatActivity() {
         }
         binding?.tvUpcomingExerciseName?.text = exerciseList!![currentExercisePosition +1].getName()
 
+        //Go to rest view
         setRestProgressBar()
     }
-
 
     private fun setupExerciseView(){
         binding?.flRestView?.visibility = View.INVISIBLE
@@ -81,19 +81,18 @@ class ExerciseActivity : AppCompatActivity() {
         binding?.ivImage?.setImageResource(exerciseList!![currentExercisePosition].getImage())
         binding?.tvExerciseName?.text = exerciseList!![currentExercisePosition].getName()
 
+        //go to exercise view
         setExerciseProgressBar()
     }
-
 
     private fun setRestProgressBar(){
         binding?.progressBar?.progress = restProgress
         restTimer = object : CountDownTimer(10000, 1000){
             override fun onTick(p0: Long) {
                 restProgress++
-                binding?.progressBar?.progress = 10- restProgress
-                binding?.tvTimer?.text = (10-restProgress).toString()
+                binding?.progressBar?.progress = 10 - restProgress
+                binding?.tvTimer?.text = (10 - restProgress).toString()
             }
-
             override fun onFinish() {
                 currentExercisePosition++
                 setupExerciseView()
@@ -106,7 +105,7 @@ class ExerciseActivity : AppCompatActivity() {
         exerciseTimer = object : CountDownTimer(30000, 1000){
             override fun onTick(p0: Long) {
                 exerciseProgress++
-                binding?.progressBarExercise?.progress = 10- exerciseProgress
+                binding?.progressBarExercise?.progress = 30 - exerciseProgress
                 binding?.tvTimerExercise?.text = (30-exerciseProgress).toString()
             }
 
@@ -115,7 +114,7 @@ class ExerciseActivity : AppCompatActivity() {
                     setupRestView()
                 }else{
                     Toast.makeText(this@ExerciseActivity,
-                        "congratulations! You completed the 7 minute workout",
+                        "Congratulations! You completed your 7 minute workout!",
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -136,5 +135,4 @@ class ExerciseActivity : AppCompatActivity() {
         }
         binding = null
     }
-
 }
