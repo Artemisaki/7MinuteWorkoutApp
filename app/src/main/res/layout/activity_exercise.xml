@@ -14,7 +14,7 @@
         android:theme="@style/ToolbarTheme"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/white"
-        app:titleTextColor="@color/colorPrimary" />
+        app:titleTextColor="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/tvTitle"
@@ -139,10 +139,10 @@
         android:visibility="gone"
         tools:visibility="visible"
         android:background="@drawable/item_circular_color_accent_border"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvExerciseName">
+        app:layout_constraintBottom_toTopOf="@id/rvExerciseStatus"
+        app:layout_constraintTop_toBottomOf="@id/ivImage">
 
 
         <ProgressBar
@@ -155,6 +155,7 @@
             android:progressDrawable="@drawable/circular_progress_bar"
             android:indeterminate="false"
             android:max="30"
+
             android:progress="300"
             android:rotation="-90"/>
 
@@ -176,5 +177,15 @@
         </LinearLayout>
 
     </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvExerciseStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flExerciseView"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
