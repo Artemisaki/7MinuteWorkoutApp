@@ -19,6 +19,6 @@ A simple workout app designed to guide you through a series of workouts, each wi
 - 🔊 **Audio Cues** *(optional)*  
   Alerts to keep you in time.
 
-<p align="center"> <img src="assets/images/exercise_preview.png" alt="exercise_preview" width="300"/> </p>
+<p align="center"> <img src="exercise_preview.png" alt="exercise_preview" width="300"/> </p>
 
 ---
